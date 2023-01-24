@@ -1,0 +1,22 @@
+<%= form_with model: @form, url: recipes_path, method: :post, local: true do |form| %>
+
+<%#以下が増加する中身%>
+  <div id="demo-area" class="form-group">
+    <div class="unit input-group">
+      <%= form.fields_for :recipes, type:"text" do |f| %>
+      <%= f.text_field :title, type:"text", placeholder:"タイトル", id:"title_id_0"%>
+      <%= f.text_field :image, type:"text", placeholder:"画像", id:"image_id_0" %>
+      <% end %>
+      <div class="demo-minus input-group-append">
+        <span class="btn btn-danger">−</span>
+      </div>
+    </div>
+  </div>
+<%#ここまでが増加する中身%>
+
+<div id="demo-plus" class="btn btn-primary">＋</div>
+
+<%= form.submit "投稿する" %>
+<% end %>
+
+

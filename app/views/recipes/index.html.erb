@@ -1,0 +1,10 @@
+<%= link_to "新規投稿", new_recipe_path %>
+<%= link_to "ログイン", new_user_session_path %>
+<%= link_to "新規登録", new_user_registration_path %>
+<%= link_to "ログアウト", destroy_user_session_path %>
+<br>
+<br>
+<% @recipes.each do |recipe| %>
+  <%= recipe.title %>
+  <%= recipe.image %> <br>
+  <% end %>
