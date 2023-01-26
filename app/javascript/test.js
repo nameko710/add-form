@@ -19,6 +19,10 @@ $('#demo-plus').on('click', function(){
     $(inputTitle).each(function(i){
       $(this).attr('name', 'form_recipe_collection[recipes_attributes][' + (i+1) + '][title]')
     });
+    inputTitle = $('#demo-area .unit').find('#form_recipe_collection_recipes_attributes_0_id')
+    $(inputTitle).each(function(i){
+      $(this).attr('name', 'form_recipe_collection[recipes_attributes][' + (i+1) + '][id]')
+    });
   }
 });
 $('.demo-minus').on('click', function(){

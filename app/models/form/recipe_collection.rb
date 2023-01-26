@@ -15,7 +15,19 @@ class Form::RecipeCollection < Form::Base
     Recipe.transaction do
       self.recipes.map do |recipe|
         recipe["user_id"] = user_id
-        recipe.save        
+        recipe.save
+      end
+    end
+      return true
+    rescue => e
+      return false
+  end
+
+  def update
+    Recipe.transaction do
+      self.recipes.map do |recipe|
+        before_recipe = Recipe.find(recipe.id)
+        before_recipe.update(title: recipe.title, image: recipe.image)
       end
     end
       return true
