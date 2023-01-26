@@ -16,6 +16,9 @@ class RecipesController < ApplicationController
     end
   end
 
+  def recipe_edit
+  end
+
   private
 
   def recipe_collection_params
