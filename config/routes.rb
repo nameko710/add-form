@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :recipes do
     collection do
       get 'recipe_edit'
+      get 'recipe_update'
     end
   end
 end

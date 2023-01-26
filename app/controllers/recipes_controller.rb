@@ -17,12 +17,23 @@ class RecipesController < ApplicationController
   end
 
   def recipe_edit
+    @recipes = current_user.recipes
+    @form = Form::RecipeCollection.new
+  end
+
+  def update
+    @form = Form::RecipeCollection.new(recipe_collection_params)
+    if @form.update
+      redirect_to action: :index
+    else
+      render :recipe_edit
+    end
   end
 
   private
 
   def recipe_collection_params
     params.require(:form_recipe_collection)
-    .permit(recipes_attributes: [:title,:image]).merge(user_id: current_user.id)
+    .permit(recipes_attributes: [:id, :title, :image]).merge(user_id: current_user.id)
   end
 end
